@@ -77,6 +77,7 @@ function Register() {
     try {
       const response = await axios.get('/db.json');
       const { users } = response.data;
+      console.log(response)
       
       const userExists = users.some(user => user.email === email);
       if (userExists) {

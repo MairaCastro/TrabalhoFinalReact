@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./Card.css";
+// import "./Card.css";
 import styled from 'styled-components';
 
 export default function Card() {
@@ -46,7 +46,73 @@ export default function Card() {
     img.style.transform = "translateZ(0px) rotateZ(0deg)";
     sizesBox.style.transform = "translateZ(0px)";
     purchase.style.transform = "translateZ(0px)";
-  }
+  }  
+
+  const SneekerImg = styled.img`
+    position: relative;
+    width: 90%;
+    transition: all 0.5s ease;
+  `;
+
+  const Card = styled.div`
+    transform-style: preserve-3d;
+    position: relative;
+    padding: 25px;
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background: linear-gradient(
+      25deg,
+      #551e1e 0%,
+      #e6bc74 86%
+    );
+    transition: all 0.1s ease;
+
+    p{
+      width: 100%;
+      color: rgb(220, 220, 220);
+    }
+  `;
+
+const Title = styled.h1`
+   width: 100%;
+   color: rgb(220, 220, 220);
+`;
+
+
+  const SizesBox = styled.ul`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+
+    li{
+      list-style: none;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      background-color: rgb(220, 220, 220);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    &:hover{
+      background-color: rgba(134, 134, 134, 0);
+    }
+  `;
+
+  const ButtonBox = styled.div`
+    width: 100%;
+  `;
 
   const Purchase = styled.button`
     cursor: pointer;
@@ -57,16 +123,18 @@ export default function Card() {
     border: none;
     font-size: 1rem;
     letter-spacing: 1px;
-    background-color: #f83cc6;
+    background-color: rgb(222, 157, 54);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      &:hover {
+       background-color: #551e1e;
+   }
 `;
 
   return (
-    
-      <div
-        className="card"
+      <Card
         ref={cardRef}
         style={{
           transform: `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`,
@@ -75,30 +143,29 @@ export default function Card() {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img
+        <SneekerImg
           ref={imgRef}
           src={"https://www.jing.fm/clipimg/full/141-1417927_caf-png.png"}
           alt="Java-Coffe"
-          className="sneaaker-img"
         />
-        <h1 className="title" ref={titleRef}>
+        <Title className="title" ref={titleRef}>
           Nike Dunk High
-        </h1>
+        </Title>
         <p ref={descRef}>
           Nike Dunk High is a high-top version of the classic Nike Dunk sneaker,
           featuring a padded collar for added support and comfort.
         </p>
-        <ul className="sizes-box" ref={sizesboxRef}>
+        <SizesBox ref={sizesboxRef}>
           <li>38</li>
           <li>40</li>
           <li>42</li>
           <li>44</li>
-        </ul>
-        <div className="button-box" ref={purchaseRef}>
+        </SizesBox>
+        <ButtonBox ref={purchaseRef}>
           <Purchase>
             Purchase
           </Purchase>
-        </div>
-      </div>
+        </ButtonBox>
+      </Card>
   );
 }

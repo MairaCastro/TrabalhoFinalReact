@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getItem, setItem } from '../../services/LocalStorageFuncs';
 import styled from 'styled-components';
+// import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 
 const LoginContainer = styled.div`
@@ -54,53 +55,26 @@ const Button = styled.button`
 `;
 
 function Login() {
-  const user = getItem('usuario');
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  const [passIncorrect, setPassIncorrect] = useState(false);
   const [userExists, setUserExists] = useState(false);
-  const [entrou, setEntrou] = useState(false);
+  const [userExistsWrongPass, setUserExistsWrongPass] = useState(true);
 
   const isFormValid = email.length > 0 && pass.length > 0;
 
-  useEffect(() => {
     const checkUserExists = async () => {
-      try {
-        const response = await axios.get('/db.json');
-        const { users } = response.data;
-        const userExists = users.some((user) => user.email === email && user.senha === pass);
-        if(userExists) {
-          window.location.href = '/';
-        } else{
-          // alert('Usuário já cadastrado');
-          // setPassIncorrect(true);
-        }
-      } catch (error) {
-        console.error('Error:', error);
+      const response = await axios.get('/db.json');
+      const { users } = response.data;
+      const userExists = users.some((user) => user.email === email && user.senha === pass);
+      setUserExists(userExists)
+      if (userExists) {
+        window.location.href = '/';
+      }
+      else{
+        setUserExistsWrongPass(false)
       }
     };
-  
-    checkUserExists();
-  }, [entrou]);  
-
-  const saveUser = (email, pass) => {
-    if (user) {
-      if (user.email.length > 0 && user.pass.length > 0) {
-        if (email === user.email && pass === user.pass) {
-          window.location.href = '/';
-        } else if (email === user.email && pass !== user.pass) {
-          setPassIncorrect(true);
-        } else {
-          // setItem('usuario', { email, pass });
-          // window.location.href = '/home';
-        }
-      }
-    } else {
-      setItem('usuario', { email, pass });
-      window.location.href = '/home';
-    }
-  };
 
   return (
     <LoginContainer>
@@ -118,13 +92,16 @@ function Login() {
           value={pass}
           placeholder="Senha"
         />
-
-        {passIncorrect && <ErrorMessage>Senha incorreta</ErrorMessage>}
+        
+        {userExistsWrongPass ? (
+          (<div></div>)
+        ) : <ErrorMessage>Senha incorreta</ErrorMessage>
+        }
 
         <Button
           type="button"
           onClick={() => {
-            setEntrou(!entrou);
+            checkUserExists()
           }}
           disabled={!isFormValid}
         >

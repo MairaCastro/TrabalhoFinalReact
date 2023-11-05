@@ -17,7 +17,7 @@
     gap: 50px;
   }
   /* ======================================================== */
-  .card {
+  /* .card {
     transform-style: preserve-3d;
     position: relative;
     padding: 25px;
@@ -35,18 +35,18 @@
       rgba(248, 177, 60, 1) 86%
     );
     transition: all 0.1s ease;
-  }
-  .sneaaker-img {
+  } */
+  /* .sneaaker-img {
     position: relative;
     width: 90%;
     transition: all 0.5s ease;
-  }
-  .title,
+  } */
+  /* .title,
   .card p {
     width: 100%;
     color: rgb(220, 220, 220);
-  }
-  .sizes-box {
+  } */
+  /* .sizes-box {
     width: 100%;
     display: flex;
     align-items: center;
@@ -66,11 +66,11 @@
   }
   .sizes-box li:hover {
     background-color: rgb(134, 134, 134);
-  }
-  .button-box {
+  } */
+  /* .button-box {
     width: 100%;
-  }
-  .purchase {
+  } */
+  /* .purchase {
     cursor: pointer;
     width: 100%;
     border-radius: 30px;
@@ -83,7 +83,7 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  }
+  } 
   .purchase:hover {
     background-color: rgb(222, 157, 54);
-  }
+  }*/
