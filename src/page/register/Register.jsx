@@ -67,6 +67,12 @@ function Register() {
 
   const isFormValid = name.length > 0 && email.length > 0 && pass.length > 0;
 
+  const http = axios.create({
+    baseURL: "http://localhost:3000"
+  });
+
+  const addUserToDB = user => http.post('users', user);
+
   const saveUser = async (name, email, pass, receiveInfo) => {
     try {
       const response = await axios.get('/db.json');
@@ -74,7 +80,7 @@ function Register() {
       
       const userExists = users.some(user => user.email === email);
       if (userExists) {
-        console.log('Usuário já cadastrado');
+        alert('Usuário já cadastrado');
         return;
       }
       
@@ -83,8 +89,7 @@ function Register() {
         email,
         senha: pass,
       };
-      const updatedUsers = [...users, newUser];
-      await axios.put('/db.json', { users: updatedUsers });
+      await addUserToDB(newUser);
       console.log('User saved successfully!');
     } catch (error) {
       console.error('Error:', error);
@@ -103,7 +108,7 @@ function Register() {
           placeholder="Nome"
         />
 
-        <Input
+        <Input 
           type="email"
           onChange={({ target: { value } }) => setEmail(value)}
           value={email}

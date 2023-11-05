@@ -73,6 +73,7 @@ function Login() {
         if(userExists) {
           window.location.href = '/';
         } else{
+          // alert('Usuário já cadastrado');
           // setPassIncorrect(true);
         }
       } catch (error) {
