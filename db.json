@@ -1,0 +1,54 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "nome": "João",
+        "email": "joao@example.com",
+        "senha": "senha123"
+      },
+      {
+        "id": 2,
+        "nome": "Maria",
+        "email": "maria@example.com",
+        "senha": "senha456"
+      },
+      {
+        "id": 3,
+        "nome": "a",
+        "email": "a",
+        "senha": "a"
+      }
+    ],
+    "produtos": [
+      {
+        "id": 1,
+        "nome": "Produto 1",
+        "preco": 10.99,
+        "quantidade": 5,
+        "descricao": "Descrição do Produto 1",
+        "imgurl": "https://example.com/produto1.jpg",
+        "favoritos": false
+      },
+      {
+        "id": 2,
+        "nome": "Produto 2",
+        "preco": 19.99,
+        "quantidade": 10,
+        "descricao": "Descrição do Produto 2",
+        "imgurl": "https://example.com/produto2.jpg",
+        "favoritos": true
+      }
+    ],
+    "pedidos": [
+      {
+        "id": 1,
+        "valortotal": 50.99,
+        "iduser": 1
+      },
+      {
+        "id": 2,
+        "valortotal": 100.50,
+        "iduser": 2
+      }
+    ]
+  }
