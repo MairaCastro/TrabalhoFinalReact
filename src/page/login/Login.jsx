@@ -14,7 +14,11 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e9d5cd, #8e665a);
+  background: linear-gradient(
+      25deg,
+      #e6bc74 0%,
+      #551e1e 86%
+    );
 `;
 
 const LoginForm = styled.form`

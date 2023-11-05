@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 // import "./Card.css";
 import styled from 'styled-components';
 
-export default function Card() {
+
+export default function CardProduct( product ) {
   const [xRotation, setXRotation] = useState(0);
   const [yRotation, setYRotation] = useState(0);
   const cardRef = useRef(null);
@@ -48,18 +49,29 @@ export default function Card() {
     purchase.style.transform = "translateZ(0px)";
   }  
 
-  const SneekerImg = styled.img`
+  const Img = styled.img`
+    width: 100%;
+    height: 100%;
+  `;  
+
+  const ImgCard = styled.div`
+  /* border: 5px solid red; */
     position: relative;
-    width: 90%;
+    height: 250px;
     transition: all 0.5s ease;
+    margin-top: -15px;
   `;
 
   const Card = styled.div`
+    /* scale: 1; */
+    margin: 20px 15px;
     transform-style: preserve-3d;
     position: relative;
     padding: 25px;
-    width: 350px;
-    height: 500px;
+    width: auto;
+    min-width: 250px;
+    max-width: 250px;
+    height: 450px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
@@ -81,7 +93,9 @@ export default function Card() {
 
 const Title = styled.h1`
    width: 100%;
+   font-size: 2.5em;
    color: rgb(220, 220, 220);
+   line-height: 1;
 `;
 
 
@@ -98,7 +112,7 @@ const Title = styled.h1`
       color: #000;
       font-weight: bold;
       border-radius: 30px;
-      padding: 0.5rem 1.5rem;
+      padding: 6% 15%;
       background-color: rgb(220, 220, 220);
       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -129,37 +143,39 @@ const Title = styled.h1`
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
       &:hover {
-       background-color: #551e1e;
+       background-color: #e6bc74;
+       color: #551e1e;
+       scale: 1.05;
+       box-shadow: 0 0 10px 0 #e6bc74;
    }
 `;
 
   return (
+    <>
       <Card
         ref={cardRef}
         style={{
           transform: `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`,
         }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        // onMouseMove={handleMouseMove}
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
       >
-        <SneekerImg
-          ref={imgRef}
-          src={"https://www.jing.fm/clipimg/full/141-1417927_caf-png.png"}
-          alt="Java-Coffe"
-        />
+        <ImgCard>
+          <Img
+            ref={imgRef}
+            src={product.product.imgurl}
+            alt="Java-Coffe"
+          />
+        </ImgCard>
         <Title className="title" ref={titleRef}>
-          Nike Dunk High
+          {product.product.nome}
         </Title>
         <p ref={descRef}>
-          Nike Dunk High is a high-top version of the classic Nike Dunk sneaker,
-          featuring a padded collar for added support and comfort.
+          {product.product.descricao}
         </p>
         <SizesBox ref={sizesboxRef}>
-          <li>38</li>
-          <li>40</li>
-          <li>42</li>
-          <li>44</li>
+          <li>R$ {product.product.preco}</li>
         </SizesBox>
         <ButtonBox ref={purchaseRef}>
           <Purchase>
@@ -167,5 +183,6 @@ const Title = styled.h1`
           </Purchase>
         </ButtonBox>
       </Card>
+    </>
   );
 }

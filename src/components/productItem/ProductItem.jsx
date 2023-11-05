@@ -1,48 +1,34 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Styled from 'styled-components';
+import axios from 'axios';
 
-function ContactItem({ contact, removeContactDB, editContact }) {
+export default function ProductItem() {
+  const { id } = useParams(); 
+  const [product, setProduct] = useState(null);
 
-  const Button = Styled.button`
-  margin: 10px 0;
-  padding: 10px 20px;
-  background-color: #847c8e;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 10px 10px 10px 0;
-`;
+  const http = axios.create({
+    baseURL: "http://localhost:3000"
+});
 
-const Contato = Styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100svw;
-  height: max-content;
-  color: #ccc;
-  font-size: 16px;
-  padding-top: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-`
+const getProdutosDB = (id) => http.get(`/produtos/${id}`);
 
-const Buttons = Styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+useEffect(() => {
+  getProdutosDB(id).then(response => {
+   console.log(response.data);
+   setProduct(response.data);
+  });
+ }, [id]);
 
-  return (
-    <Contato>
-      <p>Nome: {contact.name}</p>
-      <p>Telefone: {contact.phone}</p>
-      <p>Whatsapp: {contact.hasWhatsapp ? 'Sim' : 'Não'}</p>
-      <p>Observações: {contact.notes}</p>
-      <Buttons>
-        <Button onClick={() => removeContactDB(contact.id)}>Excluir</Button>
-        <Button onClick={() => editContact(contact)}>Editar</Button>
-      </Buttons>
-    </Contato>
-  );
+ if (!product) {
+  return <div>Carregando...</div>;
 }
-
-export default ContactItem;
+ 
+ return (
+  <div>
+   <h1>{product.nome}</h1>
+   <h1>{product.preco}</h1>
+   <h1>{product.descricao}</h1>
+  </div>
+ ); 
+}
