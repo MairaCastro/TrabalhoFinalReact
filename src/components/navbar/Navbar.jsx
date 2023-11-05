@@ -1,11 +1,30 @@
 import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function NavBar({ setSearch }){
+  const [search, setSearchLocal] = useState('');
+  const searchInput = useRef(null);
 
   const handleSearchChange = (event) => {
-    setSearch(event.target.value);
+    // searchInput = e.target.value
+    setSearchLocal(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    setSearch(search);
+  };
+
+  const handleBlur = () => {
+    setSearchLocal(searchInput.current.value);
+    searchInput.current.focus();
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      setSearch(search);
+    }
   };
 
   const HeaderArea = styled.header`
@@ -99,8 +118,8 @@ const Icon = styled.img`
         </LeftLinks>
 
         <CenterLinks>
-          <InputSearch/>
-          <IconButton onClick={handleSearchChange} >
+          <InputSearch ref={searchInput} id="searchInput" value={search} onChange={handleSearchChange} onBlur={handleBlur} onKeyDown={handleKeyDown}/>
+            <IconButton onClick={handleSearchClick}>
             <Icon src="https://cdn-icons-png.flaticon.com/512/3626/3626504.png" alt="icon" />
           </IconButton>
         </CenterLinks>

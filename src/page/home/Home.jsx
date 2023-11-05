@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ProductsList from "../../components/productList/ProductList";
 import axios from 'axios';
 
-export default function Home( search ){
+export default function Home( {search} ){
     const [products, setProducts] = useState([]);
 
     const Container = styled.div`
@@ -42,7 +42,6 @@ export default function Home( search ){
 
     useEffect(() => {
         getProdutosDB().then(response => {
-          console.log(response.data);
           setProducts(response.data);
           // const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
           // const produtosComEstoque = response.data.filter(produto => produto.nome.toLowerCase().includes('expresso'.toLowerCase()));
@@ -53,6 +52,7 @@ export default function Home( search ){
       useEffect(() => {
         // Supondo que getProducts é uma função que busca a lista de produtos
         getProdutosDB().then(response => {
+            console.log(search);
           const filteredProducts = response.data.filter(product => product.nome.toLowerCase().includes(search.toLowerCase()));
           setProducts(filteredProducts);
         });
