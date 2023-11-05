@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import Card from "../../components/cardProduct/CardProduct";
 import ProductsList from "../../components/productList/ProductList";
 import axios from 'axios';
 
-export default function Home(){
+export default function Home( search ){
+    const [products, setProducts] = useState([]);
+
     const Container = styled.div`
     overflow: auto;
     position: relative;
@@ -32,24 +34,35 @@ export default function Home(){
 
         /* box-shadow: inset -20px -30px 25px 10px #240a0a; */
     `;
-    const Overlay = styled.div`
-        background: linear-gradient(
-        25deg,
-        #551e1e 0%,
-        #e6bc74 86%
-        );
-    `;
 
     const http = axios.create({
         baseURL: "http://localhost:3000"
     });
     const getProdutosDB = () => http.get('/produtos');
 
+    useEffect(() => {
+        getProdutosDB().then(response => {
+          console.log(response.data);
+          setProducts(response.data);
+          // const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
+          // const produtosComEstoque = response.data.filter(produto => produto.nome.toLowerCase().includes('expresso'.toLowerCase()));
+        //   setProduct(produtosComEstoque);
+        });
+      }, []);
+
+      useEffect(() => {
+        // Supondo que getProducts é uma função que busca a lista de produtos
+        getProdutosDB().then(response => {
+          const filteredProducts = response.data.filter(product => product.nome.toLowerCase().includes(search.toLowerCase()));
+          setProducts(filteredProducts);
+        });
+      }, [search]);
+
     return(
         <>
             <Container>
                 <Banner/>
-                <ProductsList getProdutosDB={getProdutosDB}/>
+                <ProductsList products={products}/>
             </Container>
         </>
     )

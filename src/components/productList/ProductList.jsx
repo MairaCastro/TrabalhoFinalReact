@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import CardProduct from '../cardProduct/CardProduct';
 import styled from 'styled-components';
 
-export default function ProductList({ getProdutosDB }) {
-  const [products, setProduct] = useState([]);
+export default function ProductList({ products }) {
+  // const [products, setProduct] = useState([]);
 
-  useEffect(() => {
-    getProdutosDB().then(response => {
-      console.log(response.data);
-      setProduct(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getProdutosDB().then(response => {
+  //     console.log(response.data);
+  //     setProduct(response.data);
+  //     // const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
+  //     // const produtosComEstoque = response.data.filter(produto => produto.nome.toLowerCase().includes('expresso'.toLowerCase()));
+  //     setProduct(produtosComEstoque);
+  //   });
+  // }, []);
 
   const Lista = styled.div`
     /* border: 5px solid red; */

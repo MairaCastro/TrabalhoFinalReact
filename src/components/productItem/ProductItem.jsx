@@ -15,8 +15,7 @@ const getProdutosDB = (id) => http.get(`/produtos/${id}`);
 
 useEffect(() => {
   getProdutosDB(id).then(response => {
-   console.log(response.data);
-   setProduct(response.data);
+  setProduct(response.data);
   });
  }, [id]);
 
@@ -25,10 +24,13 @@ useEffect(() => {
 }
  
  return (
+  <>
   <div>
    <h1>{product.nome}</h1>
    <h1>{product.preco}</h1>
    <h1>{product.descricao}</h1>
+   <img src={product.imgurl} alt="" />
   </div>
+  </>
  ); 
 }

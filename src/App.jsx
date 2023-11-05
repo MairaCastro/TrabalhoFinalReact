@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Home from './page/home/Home';
 import ProductItem from './components/productItem/ProductItem';
 import Cart from './page/cart/Cart';
@@ -10,16 +11,18 @@ import styled from 'styled-components';
 import './App.css';
 
 function App() {
+  const [search, setSearch] = useState('');
+
   const Body = styled.div`
     margin-top: 64px;
     line-height: 0;
   `;
   return (
     <Router> {/* Wrap the routes with the Router component */}
-    <NavBar /> {/* Use the correct component name */}
+    <NavBar setSearch={setSearch} />
     <Body>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home search={search} />} />
         <Route path="/product/:id" element={<ProductItem />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
