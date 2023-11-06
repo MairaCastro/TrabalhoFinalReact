@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 // import "./Card.css";
 import styled from 'styled-components';
 
 export default function CardProduct( product ) {
+  const [description, setDescription] = useState( '');
   const [xRotation, setXRotation] = useState(0);
   const [yRotation, setYRotation] = useState(0);
   const cardRef = useRef(null);
@@ -12,6 +13,16 @@ export default function CardProduct( product ) {
   const descRef = useRef(null);
   const sizesboxRef = useRef(null);
   const purchaseRef = useRef(null);
+
+  useEffect(() => {
+    setDescription(product.product.descricao)
+  }, [product]);
+ 
+  useEffect(() => {
+    if(description.length > 30){
+      setDescription(description.substring(0, 27) + '...');
+    }
+  }, [description]);
 
   function handleMouseMove(event) {
     const card = cardRef.current;
@@ -59,7 +70,7 @@ export default function CardProduct( product ) {
     position: relative;
     height: 250px;
     transition: all 0.5s ease;
-    margin-top: -15px;
+    margin-top: -35px;
   `;
 
   const Card = styled.div`
@@ -93,7 +104,7 @@ export default function CardProduct( product ) {
 
 const Title = styled.h1`
    width: 100%;
-   font-size: 2.5em;
+   font-size: 2em;
    color: rgb(220, 220, 220);
    line-height: 1;
 `;
@@ -178,7 +189,7 @@ const handleProductItemClick = () => {
           {product.product.nome}
         </Title>
         <p ref={descRef}>
-          {product.product.descricao}
+          {description}
         </p>
         <SizesBox ref={sizesboxRef}>
           <li>R$ {product.product.preco}</li>

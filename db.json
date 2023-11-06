@@ -42,9 +42,9 @@
       "id": 1,
       "nome": "Café expresso",
       "preco": 10.99,
-      "quantidade": 0,
-      "descricao": "Descrição do Produto 1",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "quantidade": 9,
+      "descricao": "Descrição do Produto 1Descrição do Produto 1Descrição do Produto 1",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/Cafeteira1.png",
       "favoritos": false
     },
     {
@@ -53,7 +53,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://png.pngtree.com/png-clipart/20230927/original/pngtree-coffee-bag-3d-png-image_13147360.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/xicara_de_cafe.png",
       "favoritos": true
     },
     {
@@ -62,7 +62,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/caneca.png",
       "favoritos": true
     },
     {
@@ -71,7 +71,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Nescafé",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/copos.png",
       "favoritos": true
     },
     {
@@ -80,7 +80,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/pack1.png",
       "favoritos": true
     },
     {
@@ -89,7 +89,7 @@
       "preco": 10.99,
       "quantidade": 5,
       "descricao": "Descrição do Produto 1",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/pack2.png",
       "favoritos": false
     },
     {
@@ -98,7 +98,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://png.pngtree.com/png-clipart/20230927/original/pngtree-coffee-bag-3d-png-image_13147360.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCafeteira.png",
       "favoritos": true
     },
     {
@@ -107,7 +107,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCafeteira2.png",
       "favoritos": true
     },
     {
@@ -116,7 +116,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCapsulas.png",
       "favoritos": true
     },
     {
@@ -125,7 +125,7 @@
       "preco": 19.99,
       "quantidade": 10,
       "descricao": "Descrição do Produto 2",
-      "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
+      "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/promo.png",
       "favoritos": true
     }
   ],

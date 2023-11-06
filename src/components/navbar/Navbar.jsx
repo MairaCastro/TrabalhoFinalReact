@@ -8,7 +8,7 @@ export default function NavBar({ setSearch }){
   const searchInput = useRef(null);
 
   useEffect(() => {
-    searchInput.current.focus();
+    //searchInput.current.focus();
   }, []);
 
   const handleSearchChange = (event) => {

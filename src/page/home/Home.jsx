@@ -46,7 +46,7 @@ export default function Home( {search} ){
         getProdutosDB().then(response => {
           setProducts(response.data);
           const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
-          setProduct(produtosComEstoque);
+          setProducts(produtosComEstoque);
         });
       }, []);
 
