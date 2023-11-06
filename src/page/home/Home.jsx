@@ -45,9 +45,8 @@ export default function Home( {search} ){
     useEffect(() => {
         getProdutosDB().then(response => {
           setProducts(response.data);
-          // const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
-          // const produtosComEstoque = response.data.filter(produto => produto.nome.toLowerCase().includes('expresso'.toLowerCase()));
-        //   setProduct(produtosComEstoque);
+          const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
+          setProduct(produtosComEstoque);
         });
       }, []);
 
@@ -56,7 +55,8 @@ export default function Home( {search} ){
         getProdutosDB().then(response => {
             console.log(search);
           const filteredProducts = response.data.filter(product => product.nome.toLowerCase().includes(search.toLowerCase()));
-          setProducts(filteredProducts);
+          const produtosFiltradosEComEstoque = filteredProducts.filter(produto => produto.quantidade > 0);
+          setProducts(produtosFiltradosEComEstoque);
         });
       }, [search]);
 

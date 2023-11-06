@@ -42,7 +42,7 @@
       "id": 1,
       "nome": "Café expresso",
       "preco": 10.99,
-      "quantidade": 5,
+      "quantidade": 0,
       "descricao": "Descrição do Produto 1",
       "imgurl": "https://www.jing.fm/clipimg/full/141-1417927_caf-png.png",
       "favoritos": false
