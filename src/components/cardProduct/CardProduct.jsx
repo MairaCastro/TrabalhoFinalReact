@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 // import "./Card.css";
 import styled from 'styled-components';
-
 
 export default function CardProduct( product ) {
   const [xRotation, setXRotation] = useState(0);
@@ -150,6 +150,12 @@ const Title = styled.h1`
    }
 `;
 
+const navigate = useNavigate();
+const handleProductItemClick = () => {
+  console.log(product.product.id);
+  navigate(`/product/${product.product.id}`);
+};
+
   return (
     <>
       <Card
@@ -178,7 +184,7 @@ const Title = styled.h1`
           <li>R$ {product.product.preco}</li>
         </SizesBox>
         <ButtonBox ref={purchaseRef}>
-          <Purchase>
+          <Purchase onClick={handleProductItemClick}>
             Purchase
           </Purchase>
         </ButtonBox>

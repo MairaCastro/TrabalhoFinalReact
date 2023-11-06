@@ -7,6 +7,10 @@ export default function NavBar({ setSearch }){
   const [search, setSearchLocal] = useState('');
   const searchInput = useRef(null);
 
+  useEffect(() => {
+    searchInput.current.focus();
+  }, []);
+
   const handleSearchChange = (event) => {
     // searchInput = e.target.value
     setSearchLocal(event.target.value);

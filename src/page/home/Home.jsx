@@ -14,7 +14,7 @@ export default function Home( {search} ){
     height: 100vh;
     display: grid;
     align-items: flex-start;
-    justify-content: center;
+    /* justify-content: center; */
     background: linear-gradient(
       219deg,
       #551e1e 0%,
