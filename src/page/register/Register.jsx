@@ -1,67 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import http from '../conexaoDb/conexaoDb';
+// import http from '../../conexaoDb/conexaoDb';
 
-const LoginContainer = styled.div`
-  margin: 0;
-  width: 100svw;
-  padding: 0; 
-  box-sizing: border-box;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(
-      25deg,
-      #e6bc74 0%,
-      #551e1e 86%
-    );
-`;
-
-const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 20px;
-  background-color: #452f2f;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  border: 1px solid #5d4037;
-  background-color: #5d4037;
-  border-radius: 4px;
-  width: 200px;
-`;
-
-const CheckboxLabel = styled.label`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
-
-const ErrorMessage = styled.p`
-  color: #ff6b6b;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  background-color: #795548;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-`;
 
 function Register() {
   const [name, setName] = useState('');
@@ -70,7 +11,72 @@ function Register() {
   const [receiveInfo, setReceiveInfo] = useState(false);
   const [passIncorrect, setPassIncorrect] = useState(false);
 
+  
+const LoginContainer = styled.div`
+margin: 0;
+width: 100svw;
+padding: 0; 
+box-sizing: border-box;
+text-decoration: none;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: linear-gradient(
+    25deg,
+    #e6bc74 0%,
+    #551e1e 86%
+  );
+`;
+
+const LoginForm = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+padding: 20px;
+background-color: #452f2f;
+border-radius: 8px;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const Input = styled.input`
+padding: 10px;
+border: 1px solid #5d4037;
+background-color: #5d4037;
+border-radius: 4px;
+width: 200px;
+`;
+
+const CheckboxLabel = styled.label`
+display: flex;
+align-items: center;
+gap: 5px;
+`;
+
+const ErrorMessage = styled.p`
+color: #ff6b6b;
+`;
+
+const Button = styled.button`
+padding: 10px 20px;
+background-color: #795548;
+color: #ffffff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+
+&:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+`;
+
   const isFormValid = name.length > 0 && email.length > 0 && pass.length > 0;
+
+  const http = axios.create({
+    baseURL: "http://localhost:3000"
+  });
 
   const addUserToDB = user => http.post('users', user);
 

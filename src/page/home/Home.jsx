@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import Card from "../../components/cardProduct/CardProduct";
 import ProductsList from "../../components/productList/ProductList";
-// import axios from 'axios';
-import http from '../../components/conexaoDb/ConexaoDb';
+import axios from 'axios';
+// import http from '../../components/conexaoDb/ConexaoDb';
 
 export default function Home( {search} ){
     const [products, setProducts] = useState([]);
+
+    const http = axios.create({
+      baseURL: "http://localhost:3000"
+    });
 
     const Container = styled.div`
     overflow: auto;
