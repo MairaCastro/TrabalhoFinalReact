@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Styled from 'styled-components';
 import axios from 'axios';
-import http from '../conexaoDb/conexaoDb';
+import http from '../conexaoDb/ConexaoDb';
 
 export default function ProductItem() {
   const { id } = useParams(); 

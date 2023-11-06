@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import Card from "../../components/cardProduct/CardProduct";
 import ProductsList from "../../components/productList/ProductList";
-import axios from 'axios';
-import http from '../conexaoDb/conexaoDb';
+// import axios from 'axios';
+import http from '../../components/conexaoDb/ConexaoDb';
 
 export default function Home( {search} ){
     const [products, setProducts] = useState([]);
