@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Styled from 'styled-components';
 import axios from 'axios';
+import http from '../conexaoDb/conexaoDb';
 
 export default function ProductItem() {
   const { id } = useParams(); 
   const [product, setProduct] = useState(null);
 
-  const http = axios.create({
-    baseURL: "http://localhost:3000"
-});
 
 const getProdutosDB = (id) => http.get(`/produtos/${id}`);
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import http from '../conexaoDb/conexaoDb';
 
 const LoginContainer = styled.div`
   margin: 0;
@@ -70,10 +71,6 @@ function Register() {
   const [passIncorrect, setPassIncorrect] = useState(false);
 
   const isFormValid = name.length > 0 && email.length > 0 && pass.length > 0;
-
-  const http = axios.create({
-    baseURL: "http://localhost:3000"
-  });
 
   const addUserToDB = user => http.post('users', user);
 

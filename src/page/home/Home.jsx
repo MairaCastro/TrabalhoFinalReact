@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // import Card from "../../components/cardProduct/CardProduct";
 import ProductsList from "../../components/productList/ProductList";
 import axios from 'axios';
+import http from '../conexaoDb/conexaoDb';
 
 export default function Home( {search} ){
     const [products, setProducts] = useState([]);
@@ -35,9 +36,6 @@ export default function Home( {search} ){
         /* box-shadow: inset -20px -30px 25px 10px #240a0a; */
     `;
 
-    const http = axios.create({
-        baseURL: "http://localhost:3000"
-    });
     const getProdutosDB = () => http.get('/produtos');
 
     useEffect(() => {
