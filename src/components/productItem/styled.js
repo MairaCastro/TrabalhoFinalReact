@@ -8,8 +8,8 @@ export const AreaProductItem = styled.div`
     align-items: center;
     background: linear-gradient(
         25deg,
-        #551e1e 0%,
-        #e6bc74 80%
+        #e6bc74 0%,
+        #551e1e 80%
     ); 
     background-color: #f5f2d0;
     border-radius: 5px;
@@ -24,27 +24,38 @@ export const AreaProductItem = styled.div`
     `;
 
 export const AreaProductInfo = styled.div`
-line-height: 1.5;    
+line-height: 1.5;   
+max-width: 400px;
 `;
 
-export const Title = styled.h1`
+export const Price = styled.h2`
     font-size: 40px;
-    color: #333;
+    color: #fff;
     margin-bottom: 10px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #474a51;
     `;
 
-export const Price = styled.h2`
-    font-size: 20px;
-    color: #333;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #d3d3d3;
+export const Title = styled.h1`
+    font-size: 30px;
+    color: #fff;
     `;
+
+export const QuantidadeText = styled.h1`
+margin-top: 30px;
+font-size: 20px;
+color: #fff;
+`;
+
+export const Divider = styled.h1`
+height: 100%;
+margin: 0;
+padding: 0;
+border-bottom: 1px solid #d3d3d3;
+`;
 
 export const Description = styled.p`
     font-size: 16px;
-    color: #333;
+    color: #fff;
     `;
 
 export const ImgProduct = styled.img`
@@ -54,9 +65,12 @@ export const ImgProduct = styled.img`
 export const Quantity = styled.input`
         background: #fff;
         outline: none;
-        color: #000;
+        color: #fff;
         height: 20px;
         width: 50px;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        text-align: center;
     `;
 
 export const BtnComprar = styled.button`
@@ -104,6 +118,14 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
   rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
   rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   outline: none;
+
+  &:hover {
+   background-color: #e6bc74;
+   color: #551e1e;
+   scale: 1.05;
+   color: white;
+   box-shadow: 0 0 10px 0 #e6bc74;
+}
 `;
 
 export const ButtonBox = styled.div`
@@ -117,10 +139,19 @@ export const ButtonBox = styled.div`
   `;
 
 export const IncrementDiv = styled.div`
+    display: flex;
     border: 1px solid #d3d3d3;
+    border-radius: 20px;
+    gap: 15px;
     justify-content: space-between;
-    width: 100px;
     align-items: center;
     align-self: center;
-    align-content: center;
+    align-content: center; 
+`;
+
+export const QuantidadeDiv = styled.div`
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center; 
 `;

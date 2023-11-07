@@ -70,9 +70,11 @@ function Login() {
     const checkUserExists = async () => {
       const response = await axios.get('/db.json');
       const { users } = response.data;
-      const userExists = users.some((user) => user.email === email && user.senha === pass);
-      setUserExists(userExists)
-      if (userExists) {
+      const user = users.find((user) => user.email === email && user.senha === pass);
+      setUserExists(user)
+      if (user) {
+        localStorage.setItem("idUSer", user.id);
+        localStorage.setItem("nameUSer", user.nome);
         window.location.href = '/';
       }
       else{
@@ -85,15 +87,13 @@ function Login() {
       <LoginForm>
         <Input
           type="email"
-          onChange={({ target: { value } }) => setEmail(value)}
-          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
         />
 
         <Input
           type="password"
-          onChange={({ target: { value } }) => setPass(value)}
-          value={pass}
+          onChange={(e) => setPass(e.target.value)}
           placeholder="Senha"
         />
         

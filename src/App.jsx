@@ -19,17 +19,17 @@ function App() {
   `;
   return (
     <Router> {/* Wrap the routes with the Router component */}
-    <NavBar setSearch={setSearch} />
-    <Body>
-      <Routes>
-        <Route path="/" element={<Home search={search} />} />
-        <Route path="/product/:id" element={<ProductItem />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Body>
+      <NavBar setSearch={setSearch} />
+      <Body>
+        <Routes>
+          <Route path="/" element={<Home search={search} />} />
+          <Route path="/product/:id" element={<ProductItem />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Body>
     </Router>
   );
 }

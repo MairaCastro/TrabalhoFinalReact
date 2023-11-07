@@ -42,14 +42,6 @@ export default function Home( {search} ){
 
     const getProdutosDB = () => http.get('/produtos');
 
-    useEffect(() => {
-        getProdutosDB().then(response => {
-          setProducts(response.data);
-          const produtosComEstoque = response.data.filter(produto => produto.quantidade > 0);
-          setProducts(produtosComEstoque);
-        });
-      }, []);
-
       useEffect(() => {
         // Supondo que getProducts é uma função que busca a lista de produtos
         getProdutosDB().then(response => {

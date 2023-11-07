@@ -14,16 +14,6 @@ export default function CardProduct( product ) {
   const sizesboxRef = useRef(null);
   const purchaseRef = useRef(null);
 
-  useEffect(() => {
-    setDescription(product.product.descricao)
-  }, [product]);
- 
-  useEffect(() => {
-    if(description.length > 30){
-      setDescription(description.substring(0, 27) + '...');
-    }
-  }, [description]);
-
   function handleMouseMove(event) {
     const card = cardRef.current;
     const { offsetWidth: width, offsetHeight: height } = card;
@@ -60,6 +50,16 @@ export default function CardProduct( product ) {
     purchase.style.transform = "translateZ(0px)";
   }  
 
+  useEffect(() => {
+    setDescription(product.product.descricao)
+  }, [product]);
+ 
+  useEffect(() => {
+    if(description.length > 30){
+      setDescription(description.substring(0, 27) + '...');
+    }
+  }, [description]);
+  
   const Img = styled.img`
     width: 100%;
     height: 100%;
@@ -118,6 +118,7 @@ const Title = styled.h1`
     gap: 10px;
 
     li{
+      margin-right: 15%;
       list-style: none;
       color: #000;
       font-weight: bold;
