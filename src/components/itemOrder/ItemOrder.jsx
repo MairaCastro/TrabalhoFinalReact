@@ -38,7 +38,7 @@ export default function CardProduct( pedido ) {
 //     return formattedNumber
 //   }
 
-// console.log("ItemOrder:", pedido)
+console.log("ItemOrder:", pedido)
 
   return (
     <>
