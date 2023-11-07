@@ -60,7 +60,6 @@ export default function Cart() {
     <Container>
       <Banner />
       <ProductsOrder pedidos={pedidos} />
-      {/* <h1>{pedidos[0]}</h1> */}
     </Container>
   )
 }

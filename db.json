@@ -13,10 +13,16 @@
       "senha": "senha456"
     },
     {
-      "nome": "a",
-      "email": "a",
-      "senha": "a",
+      "nome": "Bernardo",
+      "email": "b@b.com",
+      "senha": "123456",
       "id": 3
+    },
+    {
+      "nome": "a",
+      "email": "a@a.com",
+      "senha": "123",
+      "id": 4
     }
   ],
   "produtos": [
@@ -24,7 +30,7 @@
       "id": 1,
       "nome": "Cafeteira Expresso Dolce Gusto®",
       "preco": 299.9,
-      "quantidade": 9,
+      "quantidade": 5,
       "descricao": "Com a Cafeteira Expresso Dolce Gusto® da Arno você vai preparar um delicioso café expresso em pouquíssimo tempo. Com um design sofisticado e disponível na cor PRETA, ela vai deixar seu ambiente mais moderno.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/Cafeteira1.png",
       "favoritos": false
@@ -114,19 +120,27 @@
   "pedidos": [
     {
       "idproduto": 2,
-      "valortotal": 89.9,
-      "qtproduto": 1,
-      "iduser": 2,
+      "valortotal": 449.5,
+      "qtproduto": 5,
+      "iduser": 3,
       "ispedidofinalizado": false,
       "id": 1
     },
     {
-      "idproduto": 3,
-      "valortotal": 149.7,
-      "qtproduto": 3,
-      "iduser": 2,
+      "idproduto": 1,
+      "valortotal": 1199.6,
+      "qtproduto": 4,
+      "iduser": 3,
       "ispedidofinalizado": false,
       "id": 2
+    },
+    {
+      "idproduto": 3,
+      "valortotal": 49.9,
+      "qtproduto": 1,
+      "iduser": 3,
+      "ispedidofinalizado": false,
+      "id": 3
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import Styled from 'styled-components';
 import axios from 'axios';
 import http from '../conexaoDb/ConexaoDb';
@@ -54,10 +54,14 @@ export default function ProductItem() {
   };
 
   const addPedidoToDB = pedido => http.post('pedidos', pedido);
-
+  
+  // const navigate = useNavigate();
   const savePedido = async (qtProduto, valortotal) => {
 
     let idUser = localStorage.getItem("idUser")
+    if(idUser == null || idUser == ''){
+      window.location.href = '/login';
+    } else {
     const newPedido = {
       idproduto: parseInt(id, 10),
       valortotal: valortotal,
@@ -68,6 +72,8 @@ export default function ProductItem() {
     console.log(newPedido)
       await addPedidoToDB(newPedido);
       console.log('Pedido registrado');
+      alert('Produto adicionado ao carrinho');
+  }
   };
 
   return (

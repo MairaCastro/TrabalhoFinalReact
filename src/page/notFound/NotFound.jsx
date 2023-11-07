@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div id="error-page">
       <h1>Opa, ocorreu algum erro!!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
+      <p>404 - Página não encontrada</p>
       {error && (
         <p>
           <i>{error.statusText || error.message}</i>

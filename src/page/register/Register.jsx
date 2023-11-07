@@ -101,6 +101,7 @@ function Register() {
       };
       await addUserToDB(newUser);
       console.log('User saved successfully!');
+      window.location.href = '/login';
     } catch (error) {
       console.error('Error:', error);
     }
