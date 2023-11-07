@@ -46,10 +46,12 @@ export default function Cart() {
   useEffect(() => {
     // alert(id)
     getPedidosDB().then(response => {
+      const id = localStorage.getItem('idUser');
       // setPedidos(response.data);
       const pedidosDb = response.data
       const pedidosFiltrados = pedidosDb.filter(pedido => pedido.iduser === parseInt(id, 10) && pedido.ispedidofinalizado === false);
       setPedidos(pedidosFiltrados)
+      // console.log("pedidosFiltrados", pedidosFiltrados)
     });
   }, []);
 

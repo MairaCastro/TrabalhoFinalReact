@@ -143,6 +143,30 @@
       "iduser": 2,
       "ispedidofinalizado": false,
       "id": 4
+    },
+    {
+      "idproduto": 2,
+      "valortotal": 89.9,
+      "qtproduto": 1,
+      "iduser": 1,
+      "ispedidofinalizado": false,
+      "id": 5
+    },
+    {
+      "idproduto": 3,
+      "valortotal": 49.9,
+      "qtproduto": 1,
+      "iduser": 2,
+      "ispedidofinalizado": false,
+      "id": 6
+    },
+    {
+      "idproduto": 2,
+      "valortotal": 89.9,
+      "qtproduto": 1,
+      "iduser": 2,
+      "ispedidofinalizado": false,
+      "id": 7
     }
   ]
 }

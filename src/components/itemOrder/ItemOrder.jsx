@@ -38,12 +38,12 @@ export default function CardProduct( pedido ) {
 //     return formattedNumber
 //   }
 
-console.log("ItemOrder:", pedido)
+console.log("ItemOrder:", pedido.pedido.produto.nome)
 
   return (
     <>
         <div>
-            <h1>{'oi'}</h1>
+            <h1>{pedido.pedido.produto.nome}</h1>
         </div>
     </>
   );

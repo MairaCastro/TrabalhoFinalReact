@@ -88,9 +88,10 @@ export default function Login() {
   const checkUserExists = async () => {
     const response = await axios.get('/db.json');
     const { users } = response.data;
-    const userExists = users.some((user) => user.email === email && user.senha === pass);
+    const userExists = users.find((user) => user.email === email && user.senha === pass);
     setUserExists(userExists)
     if (userExists) {
+      localStorage.setItem("idUser", userExists.id)
       window.location.href = '/';
     }
     else {
