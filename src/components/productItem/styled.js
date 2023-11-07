@@ -31,9 +31,25 @@ max-width: 400px;
 export const Price = styled.h2`
     font-size: 40px;
     color: #fff;
-    margin-bottom: 10px;
-    padding-bottom: 20px;
     `;
+
+export const PricePix = styled.h2`
+    font-size: 15px;
+    color: #fff;
+    `;
+
+export const PricePixDiv = styled.div`
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+`;
+
+export const PriceParcelado = styled.h2`
+font-size: 15px;
+color: #fff;
+margin-top: -40px;
+margin-bottom: 40px;
+`;
 
 export const Title = styled.h1`
     font-size: 30px;

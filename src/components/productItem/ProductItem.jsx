@@ -3,20 +3,31 @@ import { useParams } from 'react-router-dom';
 import Styled from 'styled-components';
 import axios from 'axios';
 import http from '../conexaoDb/ConexaoDb';
-import { AreaProductItem, QuantidadeDiv, QuantidadeText, Divider, IncrementDiv, AreaProductInfo, ImgProduct, Title, Price, Description, Quantity, BtnComprar, ButtonBox, ButtonIncrement } from './styled'
+import { AreaProductItem, PricePixDiv, PricePix, PriceParcelado, QuantidadeDiv, QuantidadeText, Divider, IncrementDiv, AreaProductInfo, ImgProduct, Title, Price, Description, Quantity, BtnComprar, ButtonBox, ButtonIncrement } from './styled'
 
 export default function ProductItem() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [preco, setPreco] = useState('');
   
   const getProdutosDB = (id) => http.get(`/produtos/${id}`);
 
   useEffect(() => {
     getProdutosDB(id).then(response => {
       setProduct(response.data);
+      setPreco(FormattedNumber(response.data.preco))
     });
   }, [id]);
+
+  function FormattedNumber( number ) {
+    const formattedNumber = number?.toLocaleString('pt-BR', { //usando ?. para chamar toLocaleString() apenas se number não for undefined ou null. Se number for undefined ou null, formattedNumber será undefined
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    return formattedNumber
+  }
 
 
   if (!product) {
@@ -66,7 +77,11 @@ export default function ProductItem() {
         <AreaProductInfo>
           <Title>{product.nome}</Title>
           <Divider></Divider>
-          <Price>R$ {product.preco}</Price>
+          <PricePixDiv>
+            <Price>R$ {preco}</Price>
+            <PricePix>no pix</PricePix>
+          </PricePixDiv>
+          <PriceParcelado>ou em até 10x de R$ {FormattedNumber(product.preco*1.1/10)} no cartão</PriceParcelado>
           <Divider></Divider>
           <Description>{product.descricao}</Description>
           <Divider></Divider>

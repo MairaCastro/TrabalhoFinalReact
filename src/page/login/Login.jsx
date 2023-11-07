@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getItem, setItem } from '../../services/LocalStorageFuncs';
 import styled from 'styled-components';
-// import { useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const LoginContainer = styled.div`
   margin: 0;
   width: 100svw;
+  height: 100vh;
   padding: 0; 
   box-sizing: border-box;
   text-decoration: none;
@@ -14,15 +15,21 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
       25deg,
       #e6bc74 0%,
       #551e1e 86%
-    );
+    ); */
+    background: url("https://en.idei.club/uploads/posts/2023-06/1686010099_en-idei-club-p-coffee-beans-leaf-dizain-pinterest-20.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
 `;
 
 const LoginForm = styled.form`
   display: flex;
+  opacity: 0.9;
+  /* margin-top: -200px; */
   flex-direction: column;
   align-items: center;
   gap: 10px;
@@ -30,6 +37,16 @@ const LoginForm = styled.form`
   background-color: #452f2f;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const Title = styled.h3`
+  color: #fff;
+`;
+
+const NoAccountLink = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 `;
 
 const Input = styled.input`
@@ -58,7 +75,8 @@ const Button = styled.button`
   }
 `;
 
-function Login() {
+export default function Login() {
+  document.title = "Login | Coffe Deluxe Java"
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -67,40 +85,46 @@ function Login() {
 
   const isFormValid = email.length > 0 && pass.length > 0;
 
-    const checkUserExists = async () => {
-      const response = await axios.get('/db.json');
-      const { users } = response.data;
-      const user = users.find((user) => user.email === email && user.senha === pass);
-      setUserExists(user)
-      if (user) {
-        localStorage.setItem("idUSer", user.id);
-        localStorage.setItem("nameUSer", user.nome);
-        window.location.href = '/';
-      }
-      else{
-        setUserExistsWrongPass(false)
-      }
-    };
+  const checkUserExists = async () => {
+    const response = await axios.get('/db.json');
+    const { users } = response.data;
+    const userExists = users.some((user) => user.email === email && user.senha === pass);
+    setUserExists(userExists)
+    if (userExists) {
+      window.location.href = '/';
+    }
+    else {
+      setUserExistsWrongPass(false)
+    }
+  };
 
   return (
     <LoginContainer>
       <LoginForm>
+        <Title>Login</Title>
         <Input
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={({ target: { value } }) => setEmail(value)}
+          value={email}
           placeholder="Email"
         />
 
         <Input
           type="password"
-          onChange={(e) => setPass(e.target.value)}
+          onChange={({ target: { value } }) => setPass(value)}
+          value={pass}
           placeholder="Senha"
         />
-        
+
         {userExistsWrongPass ? (
           (<div></div>)
         ) : <ErrorMessage>Senha incorreta</ErrorMessage>
         }
+
+        <NoAccountLink>
+          <div>Não tem conta? </div>&nbsp;
+          <Link to="/register">Registrar-se</Link>
+        </NoAccountLink><br />
 
         <Button
           type="button"
@@ -111,9 +135,8 @@ function Login() {
         >
           Entrar
         </Button>
+
       </LoginForm>
     </LoginContainer>
   );
 }
-
-export default Login;

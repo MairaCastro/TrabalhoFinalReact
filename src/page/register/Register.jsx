@@ -12,7 +12,11 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(25deg, #e6bc74 0%, #551e1e 86%);
+  /* background: linear-gradient(25deg, #e6bc74 0%, #551e1e 86%); */
+  background: url("https://en.idei.club/uploads/posts/2023-06/1686010099_en-idei-club-p-coffee-beans-leaf-dizain-pinterest-20.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
 `;
 
 const LoginForm = styled.form`
@@ -58,7 +62,12 @@ const Button = styled.button`
   }
 `;
 
+const Title = styled.h3`
+color: #fff;
+`;
+
 function Register() {
+  document.title = "Cadastre-se | Coffee Deluxe Java"
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -101,6 +110,7 @@ function Register() {
   return (
     <LoginContainer>
       <LoginForm>
+        <Title>Cadastre-se</Title> 
         <Input
           type="text"
           onChange={({ target: { value } }) => setName(value)}

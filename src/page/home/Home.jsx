@@ -6,6 +6,7 @@ import axios from 'axios';
 // import http from '../../components/conexaoDb/ConexaoDb';
 
 export default function Home( {search} ){
+  document.title = "Home | Coffee Deluxe Java"
     const [products, setProducts] = useState([]);
 
     const http = axios.create({

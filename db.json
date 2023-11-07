@@ -11,96 +11,102 @@
       "nome": "Maria",
       "email": "maria@example.com",
       "senha": "senha456"
+    },
+    {
+      "nome": "a",
+      "email": "a",
+      "senha": "a",
+      "id": 3
     }
   ],
   "produtos": [
     {
       "id": 1,
-      "nome": "Café expresso",
-      "preco": 10.99,
-      "quantidade": 6,
-      "descricao": "Descrição do Produto 1Descrição do Produto 1Descrição do Produto 1",
+      "nome": "Cafeteira Expresso Dolce Gusto®",
+      "preco": 299.9,
+      "quantidade": 9,
+      "descricao": "Com a Cafeteira Expresso Dolce Gusto® da Arno você vai preparar um delicioso café expresso em pouquíssimo tempo. Com um design sofisticado e disponível na cor PRETA, ela vai deixar seu ambiente mais moderno.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/Cafeteira1.png",
       "favoritos": false
     },
     {
       "id": 2,
-      "nome": "Produto 2",
-      "preco": 19.99,
+      "nome": "Copo térmico anti-vazamento True Stone 700ml",
+      "preco": 89.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2 Descrição do Produto 2 Descrição do Produto 2 Descrição do Produto 2 Descrição do Produto 2 Descrição do Produto 2 ",
+      "descricao": "Com um design elegante e robusto, o copo térmico da True Stone é ideal para o seu Fresh Coffee a qualquer hora do dia.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/xicara_de_cafe.png",
       "favoritos": true
     },
     {
       "id": 3,
-      "nome": "Produto 3",
-      "preco": 19.99,
+      "nome": "Caneca Battlecreek azul clara 300 mL",
+      "preco": 49.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "Feita com cerâmica de alta qualidade, a caneca é resistente e durável, garantindo que você possa desfrutar de suas bebidas quentes favoritas por muito tempo. A cor azul clara exala uma sensação calmante, tornando cada café uma experiência relaxante.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/caneca.png",
       "favoritos": true
     },
     {
       "id": 4,
-      "nome": "Café expresso",
-      "preco": 19.99,
+      "nome": "Caneca preta 300ml",
+      "preco": 49.9,
       "quantidade": 10,
-      "descricao": "Nescafé",
+      "descricao": "Adquira já essa caneca personalizada para aqueles que amam fazer da hora do café uma experiência única.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/copos.png",
       "favoritos": true
     },
     {
       "id": 5,
-      "nome": "Produto 5",
-      "preco": 19.99,
+      "nome": "Café artesanal Onyx Coffee 250g",
+      "preco": 59.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "Com uma mistura única de grãos de café de três continentes diferentes - Etiópia, México e Índia - este café um sabor complexo e exótico, com notas de chocolate e especiarias.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/pack1.png",
       "favoritos": true
     },
     {
       "id": 6,
-      "nome": "Produto 1",
-      "preco": 10.99,
+      "nome": "Café artesanal Early Bird Vollautomat 500g",
+      "preco": 49.9,
       "quantidade": 5,
-      "descricao": "Descrição do Produto 1",
+      "descricao": "Delicie-se com o sabor inigualável do Café Artesanal Early Bird Vollautomat 500g. Este café é uma verdadeira representação da arte e da paixão por trás da produção de café de qualidade.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/pack2.png",
       "favoritos": false
     },
     {
       "id": 7,
-      "nome": "Produto 2",
-      "preco": 19.99,
+      "nome": "Compre 100 Cápsulas Dolce Gusto®, Café e Bebidas Cremosas e GANHE uma CAFETEIRA DOLCE GUSTO",
+      "preco": 269.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "Adquirindo 100 cápsulas você leva uma Dolce Gusto® pra chamar de sua! ",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCafeteira.png",
       "favoritos": true
     },
     {
       "id": 8,
-      "nome": "Produto 3",
-      "preco": 19.99,
+      "nome": "Kit Moedora Artesanal de café + grãos de café Castillo Cuaca + Caneca Battlecreek azul clara",
+      "preco": 990.99,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "Descubra o encanto do café feito à mão com o nosso 'Kit Moedora Artesanal de Café + Grãos de Café Castillo Cuaca + Caneca Battlecreek Azul Clara'. Este kit é a combinação perfeita para os verdadeiros amantes do café.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCafeteira2.png",
       "favoritos": true
     },
     {
       "id": 9,
-      "nome": "Produto 4",
-      "preco": 19.99,
+      "nome": "50 Cápsulas Dolce Gusto®, Café e Bebidas Cremosas",
+      "preco": 102.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "Adquira agora mesmo o seu kit de 5 caixas com 10 unidades em cada nos sabores: Expresso Intenso, Café Matinal, Cappuccino e Nescau",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/PacoteCapsulas.png",
       "favoritos": true
     },
     {
       "id": 10,
-      "nome": "Produto 10",
-      "preco": 19.99,
+      "nome": "Grãos de café Castillo Cuaca + Caneca Battlecreek azul clara 300ml",
+      "preco": 79.9,
       "quantidade": 10,
-      "descricao": "Descrição do Produto 2",
+      "descricao": "O kit inclui os grãos de café Castillo Cuaca, originários das regiões de alta altitude da Colômbia. Finalmente, aprecie a sua bebida perfeitamente preparada na Caneca Battlecreek Azul Clara. Feita com cerâmica robusta, a caneca é resistente e durável.",
       "imgurl": "http://bots2.me/_botsConfig/serratec/react/trabalhoFinal/promo.png",
       "favoritos": true
     }
@@ -118,7 +124,7 @@
       "idproduto": 2,
       "valortotal": 39.98,
       "qtproduto": 2,
-      "iduser": 2,
+      "iduser": 3,
       "ispedidofinalizado": false,
       "id": 2
     },
@@ -129,6 +135,14 @@
       "iduser": 2,
       "ispedidofinalizado": false,
       "id": 3
+    },
+    {
+      "idproduto": 2,
+      "valortotal": 179.8,
+      "qtproduto": 2,
+      "iduser": 2,
+      "ispedidofinalizado": false,
+      "id": 4
     }
   ]
 }
