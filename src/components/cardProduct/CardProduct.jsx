@@ -218,7 +218,7 @@ const handleProductItemClick = () => {
         </SizesBox>
         <ButtonBox ref={purchaseRef}>
           <Purchase onClick={handleProductItemClick}>
-            Purchase
+            Comprar
           </Purchase>
         </ButtonBox>
       </Card>

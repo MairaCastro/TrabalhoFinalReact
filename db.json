@@ -113,60 +113,20 @@
   ],
   "pedidos": [
     {
-      "id": 1,
-      "valortotal": 50,
-      "idproduto": 1,
-      "qtproduto": 2,
-      "iduser": 1,
-      "ispedidofinalizado": false
+      "idproduto": 2,
+      "valortotal": 89.9,
+      "qtproduto": 1,
+      "iduser": 2,
+      "ispedidofinalizado": false,
+      "id": 1
     },
     {
-      "idproduto": 2,
-      "valortotal": 39.98,
-      "qtproduto": 2,
-      "iduser": 3,
+      "idproduto": 3,
+      "valortotal": 149.7,
+      "qtproduto": 3,
+      "iduser": 2,
       "ispedidofinalizado": false,
       "id": 2
-    },
-    {
-      "idproduto": 2,
-      "valortotal": 19.99,
-      "qtproduto": 1,
-      "iduser": 2,
-      "ispedidofinalizado": false,
-      "id": 3
-    },
-    {
-      "idproduto": 3,
-      "valortotal": 179.8,
-      "qtproduto": 2,
-      "iduser": 2,
-      "ispedidofinalizado": false,
-      "id": 4
-    },
-    {
-      "idproduto": 2,
-      "valortotal": 89.9,
-      "qtproduto": 1,
-      "iduser": 1,
-      "ispedidofinalizado": false,
-      "id": 5
-    },
-    {
-      "idproduto": 3,
-      "valortotal": 49.9,
-      "qtproduto": 1,
-      "iduser": 2,
-      "ispedidofinalizado": false,
-      "id": 6
-    },
-    {
-      "idproduto": 2,
-      "valortotal": 89.9,
-      "qtproduto": 1,
-      "iduser": 2,
-      "ispedidofinalizado": false,
-      "id": 7
     }
   ]
 }

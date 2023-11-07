@@ -1,50 +1,40 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-// import "./Card.css";
+import { StyledCard, BtnFinalizarCompra, Img, ProductInfo, StyledImage, StyledTitle, StyledPrice, StyledQuantity } from './styled';
+import axios from 'axios';
+import http from '../conexaoDb/ConexaoDb';
 import styled from 'styled-components';
 
 export default function CardProduct( pedido ) {
-      const [produto, setProdutos] = useState(null);
-//   const [description, setDescription] = useState( '');
-//   const [title, setTitle] = useState('');
-//   const [preco, setPreco] = useState('');
 
-//   useEffect(() => {
-//     setDescription(product.product.descricao)
-//     setTitle(product.product.nome)
-//     setPreco(FormattedNumber(product.product.preco))
-//   }, [pedido]);
- 
-//   useEffect(() => {
-//     const maxTam = 27
-//     if(description.length > maxTam){
-//       setDescription(description.substring(0, maxTam-3) + '...');
-//     }
-//   }, [description]);
+  const getProdutosDB = (id) => http.get(`/pedidos/${id}`);
 
-//   useEffect(() => {
-//     const maxTam = 28
-//     if(title.length > maxTam){
-//       setTitle(title.substring(0, maxTam-3) + '...');
-//     }
-//   }, [title]);
-
-//   function FormattedNumber( number ) {
-//     const formattedNumber = number?.toLocaleString('pt-BR', { //usando ?. para chamar toLocaleString() apenas se number não for undefined ou null. Se number for undefined ou null, formattedNumber será undefined
-//       minimumFractionDigits: 2,
-//       maximumFractionDigits: 2
-//     });
-
-//     return formattedNumber
-//   }
-
-console.log("ItemOrder:", pedido.pedido.produto.nome)
+  const updatePedido = async (id) => {
+    try {
+      const response = await axios.put(`pedidos/${id}`, {
+        ispedidofinalizado: true
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Erro ao atualizar o pedido:', error);
+    }
+   };
 
   return (
     <>
-        <div>
-            <h1>{pedido.pedido.produto.nome}</h1>
-        </div>
+    <StyledCard>
+      <StyledImage>
+      <Img src={pedido.pedido.produto.imgurl}/>
+      </StyledImage>
+      <ProductInfo>
+          <StyledTitle>{pedido.pedido.produto.nome}</StyledTitle>
+          <StyledPrice>R$ {pedido.pedido.produto.preco}</StyledPrice>
+          <StyledPrice>Valor Total: R$ {pedido.pedido.valortotal}</StyledPrice>
+          <StyledQuantity>Quantidade: {pedido.pedido.qtproduto}</StyledQuantity>
+      </ProductInfo>
+      <BtnFinalizarCompra onClick={() => updatePedido(pedido.pedido.id)}>Finalizar Compra</BtnFinalizarCompra>
+
+    </StyledCard>
     </>
   );
-}
+  }

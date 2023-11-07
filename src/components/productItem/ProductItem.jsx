@@ -57,7 +57,7 @@ export default function ProductItem() {
 
   const savePedido = async (qtProduto, valortotal) => {
 
-    let idUser = localStorage.getItem("idUSer")
+    let idUser = localStorage.getItem("idUser")
     const newPedido = {
       idproduto: parseInt(id, 10),
       valortotal: valortotal,

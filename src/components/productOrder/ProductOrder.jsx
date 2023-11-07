@@ -4,11 +4,7 @@ import styled from 'styled-components';
 import http from '../../components/conexaoDb/ConexaoDb';
 
 export default function ProductOrder({ pedidos }) {
-  // const [products, setProduct] = useState([]);
-
-  useEffect(() => {
-    // console.log(pedidos)
-  }, []);
+  const [pedidoAtualizado, setPedidoAtualizado] = useState([]);
 
   const Lista = styled.div`
     /* border: 5px solid red; */
@@ -29,23 +25,24 @@ const getProdutosDB = async (idproduto) => {
   
 
   useEffect(() => {
-    // console.log(pedidos)
-    pedidos.forEach(async (pedido) => {
-      const produtos = await getProdutosDB();
-      const produto = produtos.find(produto => produto.id === pedido.idproduto);
-      pedido.produto = produto;
-    //   console.log("pedido.produto", pedido.produto)
-    //   console.log("pedido.produto2", pedido)
-      return pedido
-    });
-  }, []);
+    const atualizarPedidos = async () => {
+      const novosPedidos = await Promise.all(pedidos.map(async (pedido) => {
+        const produtos = await getProdutosDB();
+        const produto = produtos.find(produto => produto.id === pedido.idproduto);
+        return { ...pedido, produto };
+      }));
+      setPedidoAtualizado(novosPedidos);
+    };
+    atualizarPedidos();
+   }, [pedidos]);
+   
   
 
   return (
     <>
       <Lista>
-        {pedidos.map((pedido) => (
-            <ItemOrder key={pedido.id} pedido={pedido} produto={pedido.produto} />
+        {pedidoAtualizado.length == 0 ? null : pedidoAtualizado.map((pedido) => (
+            <ItemOrder key={pedido.id} pedido={pedido}/>
         ))}
       </Lista>
     </>
