@@ -43,8 +43,10 @@ export default function Cart() {
 
   const getPedidosDB = () => http.get(`/pedidos`);
 
-  useEffect(() => {
-    // alert(id)
+  function atualizarPedidos(){
+    atualizarPedido()
+  }
+  const atualizarPedido = async () => {
     getPedidosDB().then(response => {
       const id = localStorage.getItem('idUser');
       // setPedidos(response.data);
@@ -53,13 +55,17 @@ export default function Cart() {
       setPedidos(pedidosFiltrados)
       // console.log("pedidosFiltrados", pedidosFiltrados)
     });
+  };
+
+  useEffect(() => {
+    atualizarPedidos()
   }, []);
 
 
   return (
     <Container>
       <Banner />
-      <ProductsOrder pedidos={pedidos} />
+      <ProductsOrder pedidos={pedidos}/>
     </Container>
   )
 }
