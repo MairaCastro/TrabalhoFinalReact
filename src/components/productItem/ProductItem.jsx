@@ -3,6 +3,7 @@ import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import Styled from 'styled-components';
 import axios from 'axios';
 import http from '../conexaoDb/ConexaoDb';
+import FormattedNumber from '../../Util/Util';
 import { AreaProductItem, PricePixDiv, PricePix, PriceParcelado, QuantidadeDiv, QuantidadeText, Divider, IncrementDiv, AreaProductInfo, ImgProduct, Title, Price, Description, Quantity, BtnComprar, ButtonBox, ButtonIncrement } from './styled'
 
 export default function ProductItem() {
@@ -19,16 +20,6 @@ export default function ProductItem() {
       setPreco(FormattedNumber(response.data.preco))
     });
   }, [id]);
-
-  function FormattedNumber( number ) {
-    const formattedNumber = number?.toLocaleString('pt-BR', { //usando ?. para chamar toLocaleString() apenas se number não for undefined ou null. Se number for undefined ou null, formattedNumber será undefined
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-
-    return formattedNumber
-  }
-
 
   if (!product) {
     return <div>Carregando...</div>;

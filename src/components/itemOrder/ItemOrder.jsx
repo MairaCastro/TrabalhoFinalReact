@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { StyledCard, BtnFinalizarCompra, Img, ProductInfo, StyledImage, StyledTitle, StyledPrice, StyledQuantity } from './styled';
 import http from '../conexaoDb/ConexaoDb';
+import FormattedNumber from '../../Util/Util';
 
-export default function ItemOrder( pedido, removerPedidoLista ) {
+export default function ItemOrder( pedido, {removerPedidoLista} ) {
 
   const getProdutosDB = (id) => http.get(`/pedidos/${id}`);
   
@@ -20,12 +21,13 @@ export default function ItemOrder( pedido, removerPedidoLista ) {
       };
       const response = await updatePedidoDB(id, newAtualizado).then(() => {
         console.log(`Updating order with id: ${id}`);
-              removerPedidoLista(id)
+              // removerPedidoLista(id)
+              location.reload();
               pedido = null;
             }).catch(error => {
               console.error('An error occurred while deleting the contact:', error);
             });
-      console.log(response.data);
+      // console.log(response.data);
     } catch (error) {
       console.error('Erro ao atualizar o pedido:', error);
     }
@@ -39,8 +41,8 @@ export default function ItemOrder( pedido, removerPedidoLista ) {
       </StyledImage>
       <ProductInfo>
           <StyledTitle>{pedido.pedido.produto.nome}</StyledTitle>
-          <StyledPrice>R$ {pedido.pedido.produto.preco}</StyledPrice>
-          <StyledPrice>Valor Total: R$ {pedido.pedido.valortotal}</StyledPrice>
+          <StyledPrice>R$ {FormattedNumber(pedido.pedido.produto.preco)}</StyledPrice>
+          <StyledPrice>Valor Total: R$ {FormattedNumber(pedido.pedido.valortotal)}</StyledPrice>
           <StyledQuantity>Quantidade: {pedido.pedido.qtproduto}</StyledQuantity>
       </ProductInfo>
       <BtnFinalizarCompra onClick={() => updatePedido(pedido.pedido.id)}>Finalizar Compra</BtnFinalizarCompra>

@@ -10,3 +10,8 @@ margin: 30px 30px;
 padding: 0;
 justify-content: center;
 `;
+
+export const Title = styled.h1`
+text-align: center;
+font-size: 28px;
+`;
